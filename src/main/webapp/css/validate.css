@@ -1,0 +1,7 @@
+span.error {
+  padding-left: 16px;
+  margin-left: 1em;
+  padding-bottom: 2px;
+  font-weight: bold;
+  color: #EA5200;
+}

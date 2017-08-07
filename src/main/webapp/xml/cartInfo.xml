@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cart>
+	<!-- 通用的返回状态元素,当返回的状态码代表不正常时文件中就只会有这一个元素的 -->
+	<response-status>201</response-status>
+
+	<!-- 总页数 -->
+	<total-page>4</total-page>
+
+	<!-- 当前页 -->
+	<current-page>1</current-page>
+
+	<!-- 数据统计日期 -->
+	<count-date>2012-02-31</count-date>
+
+	<!-- 对应于一个tracku和clickid的组合有一个此元素，一次最多1000个此元素 -->
+	<cart-info>
+		<!-- 渠道标识 -->
+		<tracker-u>1024029485</tracker-u>
+
+		<!-- 点击标识 -->
+		<clickid>jk7Nsdk282</clickid>
+		
+		
+		<!-- 商品编码 -->
+		<product-code>0000012345</product-code>
+
+		<!-- 商品名称 -->
+		<product-name>sansung手机</product-name>
+
+		<!-- 商品所属品牌名称 -->
+		<brand>sansung</brand>
+
+		<!-- 商品所属一级类目 -->
+		<category-level1>手机通讯、数码电器</category-level1>
+
+		<!-- 商品所属二级类目 -->
+		<category-level2>手机通讯</category-level2>
+
+		<!-- 购物车中此商品的单价(目前无法提供,返回的都是空元素) -->
+		<totalprice>2480</totalprice>
+
+		<!-- 购物车中此商品的数量(目前无法提供,返回的都是空元素) -->
+		<count>2</count>
+		
+	</cart-info>
+
+
+	<cart-info>	
+		<tracker-u>1024029485</tracker-u>
+		<clickid>jk7Nsdk282</clickid>
+		<product-code>0000012345</product-code>
+		<product-name>motorolo手机</product-name>
+		<brand>motorolo</brand>
+		<category-level1>手机通讯、数码电器</category-level1>
+		<category-level2>手机通讯</category-level2>
+		<totalprice>1000</totalprice>
+		<count>1</count>
+	</cart-info>
+
+
+
+	<cart-info>
+		<tracker-u>1024029485</tracker-u>
+		<clickid>jk7Nsdk282</clickid>
+		<product-code>0000012345</product-code>
+		<product-name>sansung手机</product-name>
+		<brand>sansung</brand>
+		<category-level1>手机通讯、数码电器</category-level1>
+		<category-level2>手机通讯</category-level2>
+		<totalprice>2480</totalprice>
+		<count>2</count>
+	</cart-info>	
+		
+</cart>
+

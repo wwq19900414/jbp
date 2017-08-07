@@ -1,0 +1,254 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <title>Deeplink</title>
+  <meta http-equiv=Content-Type content="text/html;charset=utf-8">
+  <meta name="generator" content="editplus" />
+  <meta name="author" content="" />
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+ </head>
+
+ <body >
+<select id="type">
+	<option value="1">首页</option>
+	<option value="2">详情页</option>
+	<option value="3">搜索页</option>
+	<option value="4">CMS页</option>
+	<option value="5">其他</option>
+</select>
+
+<br/>
+<label for="tracker_u">tracker_u:</label>
+<input type="text" id="tracker_u">
+
+<br/>
+<label for="param1">param1:</label>
+<input type="text" id="param1">
+
+<br/>
+<label for="param2">param2:</label>
+<input type="text" id="param2">
+
+<br/>
+<label for="param3">param3:</label>
+<input type="text" id="param3">
+
+<br/>
+<label for="param4">param4:</label>
+<input type="text" id="param4">
+<input type="button" value="跳转吧" onclick="goapp()">
+
+<br/>
+<label for="url">url</label>
+<input type="text" id="url" >
+
+
+<a href ='yhd://productdetail?body={"pmId":"65586121","tracker_u":"94831156","b_cpt":"deeplink"}'>跳转啊啊</a>
+
+<div id="chessBoard" onmousedown="mouseDown(event)" style="cursor: ;">
+<canvas id="demoCanvas" width="600px" height="600px;"></canvas>
+</div>
+
+<script type="text/javascript">
+var ROWS = 15;//行数
+var COLS = 15;//列数
+var MARGIN = 30;//边距
+var GRID_SPAN = 35;//网格间距
+var POINT_SIZE = GRID_SPAN/2;
+//第一步：获取canvas元素
+var canvasDom = document.getElementById("demoCanvas");
+//第二步：获取上下文
+var context = canvasDom.getContext('2d');
+drowChessBoard();
+
+function mouseDown(event){
+	var x = event.getX();
+	var y = event.getY();
+	console.log(x+"_"+y);
+}
+
+function drowChessBoard(){
+	
+        //第三步：指定绘制线样式、颜色
+        context.strokeStyle = "red";
+        // 画横线
+		for (var i = 0; i <= ROWS; i++) {
+			var ix= MARGIN + i * GRID_SPAN;
+			var y =  + COLS * GRID_SPAN;
+			context.strokeRect(MARGIN, ix, y, 1);
+		}
+
+		// 画竖线
+		for (var i = 0; i <= COLS; i++) {
+			var ix= MARGIN + i * GRID_SPAN;
+			var y = ROWS * GRID_SPAN;
+			context.strokeRect(ix, MARGIN, 1,y);
+		}
+
+		for(var i = 0; i <= ROWS ; i++){
+			context.beginPath();
+			context.arc(MARGIN + i * GRID_SPAN,MARGIN + i * GRID_SPAN,POINT_SIZE,0,360,false);
+			context.fillStyle="blue";//填充颜色,默认是黑色
+			context.fill();//画实心圆
+			context.strokeStyle="green";
+			context.stroke();
+			context.closePath();
+		}
+}
+
+/**
+ * 根据type参数决定跳转的deeplink页面
+ */
+function goapp() {
+	var type = document.getElementById("type").value;
+	var tracker_u = document.getElementById("tracker_u").value;
+	var param1 = document.getElementById("param1").value;
+	var param2 = document.getElementById("param2").value;
+	var param3 = document.getElementById("param3").value;
+	var param4 = document.getElementById("param4").value;
+	var url = document.getElementById("url").value;
+
+
+	var deeplinkUrl = getDeeplink(type,param1,param2,param3,param4,tracker_u,url);
+	urlGo(deeplinkUrl);
+
+	var H5linkUrl = getH5link(type,param1,param2,param3,param4,tracker_u,url);
+	console.log(H5linkUrl);
+	setTimeout(function(){
+        window.location = H5linkUrl;
+    },3000);
+
+}
+
+function getDeeplink(type,param1,param2,param3,param4,tracker_u,url){
+	var body = "{\"b_cpt\":\"deeplink\"";
+	
+	if(tracker_u != null && tracker_u != ''){
+		body += ",\"tracker_u\":\""+tracker_u+"\"";
+	}
+	
+	if(type == ''){
+		return "yhd://home/?body="+body+"}";
+	}else{
+		type = parseInt(type);
+	}
+	
+	console.log(type);
+	if(type == 1){// 首页
+		return "yhd://home/?body="+body+"}";
+		
+	}else if(type == 2){// 详情页
+		console.log(param1);
+		if(param1 != null && param1 != ''){
+			body += ",\"pmId\":\""+param1+"\"";
+		}else{
+			return "yhd://home/?body="+body+"}";
+		}
+		return "yhd://productdetail/?body="+body+"}";
+		
+	}else if(type == 3){//搜索页
+		if(param1 != null && param1 != ''){
+			body += ",\"keyword\":\""+param1+"\"";
+		}else{
+			return "yhd://home/?body="+body+"}";
+		}
+		
+		if(param2 != null && param2 != ''){
+			body += ",\"categoryId\":\""+param2+"\"";
+		}
+		return "yhd://search/?body="+body+"}";
+		
+	}else if(type == 4){//CMS页
+		if(param1 != null && param1 != ''){
+			body += ",\"promotionId\":\""+param1+"\"";
+		}else{
+			return "yhd://home/?body="+body+"}";
+		}
+		
+		if(param2 != null && param2 != ''){
+			body += ",\"title\":\""+param2+"\"";
+		}
+		
+		return "yhd://nativecms/?body="+body+"}";
+		
+	}else {
+		if(url !=''){
+			body+=",\"url\":\""+url+"\"";
+			body+=",\"title\":\"其他页面\"";
+			
+			return "yhd://web/?body="+body+"}";
+		}else{
+			return "yhd://home/?body="+body+"}";
+		}
+		
+	}
+
+}
+
+
+
+function getH5link(type,param1,param2,param3,param4,tracker_u,url){
+	
+	var H5Link = "";
+	
+	if(type == ''){
+		H5Link =  "http://m.yhd.com";
+	}else{
+		type = parseInt(type);
+	}
+	
+	if(type == 1){// 首页
+		H5Link =  "http://m.yhd.com";
+		
+	}else if(type == 2){// 详情页
+		if(param1 != null && param1 != ''){
+			H5Link = "http://item.m.yhd.com/item/"+param1;
+		}else{
+			H5Link =  "http://m.yhd.com";
+		}
+		
+		
+	}else if(type == 3){//搜索页
+		if(param1 != null && param1 != ''){
+			H5Link = "http://search.m.yhd.com/search/k"+param1;
+		}else{
+			H5Link =  "http://m.yhd.com";
+		}
+		
+	}else if(type == 4){//CMS页
+		if(param1 != null && param1 != ''){
+			H5Link = "http://cms.m.yhd.com/sale/"+param1;
+		}else{
+			H5Link =  "http://m.yhd.com";
+		}
+	}else {
+		if(url !=''){
+			H5Link = url;
+		}else{
+			H5Link =  "http://m.yhd.com";
+		}
+	}
+	
+	
+	var track = "";
+	if(tracker_u != null && tracker_u != ''){
+		if(H5Link.indexOf("?")>0){
+			H5Link += "&tracker_u="+tracker_u;
+		}else{
+			H5Link += "?tracker_u="+tracker_u;
+		}
+		
+	}
+
+	return H5Link;
+}
+
+function urlGo(url){
+    setTimeout(function(){
+        window.location = url;
+    },10);
+}
+</script>
+ </body>
+</html>

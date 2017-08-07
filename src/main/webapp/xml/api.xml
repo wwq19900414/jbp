@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api>
+	<api-account>123</api-account>
+
+	<tracker>
+		<!--tracker_u-->
+		<tracker-u>1980325048414</tracker-u>
+		
+		<!--有效时间段的开始时间-->
+		<begin-time>2014-06-02</begin-time>
+		
+		<!--有效时间段的结束时间-->
+		<end-time>2014-07-21</end-time>
+		
+		<!--相对当前时间的状态,如当前日期是2014-07-30,所以过期了,该tracker_u的数据将不会出现在API返回数据了-->
+		<!--如果仍然需要该tracker_U的数据出现在API返回数据中,请联系一号店相关人员续约以延长这个有效时间段-->
+		<status>已过期</status>
+	</tracker>
+	
+	<tracker>
+		<tracker-u>1690325049414</tracker-u>
+		<begin-time>2014-07-29</begin-time>
+		<end-time>2014-09-20</end-time>
+		<!--相对当前时间的状态,如当前日期是2014-07-30,所以是正常,API会返回这个tracker_U的数据(如果有数据的话)-->
+		<status>正常</status>
+	</tracker>
+	
+	<tracker>
+		<tracker-u>1940325049414</tracker-u>
+		<begin-time>2014-08-30</begin-time>
+		<end-time>2014-09-20</end-time>
+		
+		<!--相对当前时间的状态,如当前日期是2014-07-30,所以是未开始,API在当前时间是不会返回这个tracker_U的数据(如果有数据的话)-->
+		<!--这种情况一般是预先约定好在将来某段时间投放这个tracker_u的广告,所以一般不用处理,随着时间的推移进入有效时间段,API自然能够将这个tracker_u的数据返回了-->
+		<status>未开始</status>
+	</tracker>
+
+</api>

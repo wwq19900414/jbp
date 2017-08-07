@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coupon>
+	<!-- 通用的返回状态元素,当返回的状态码代表不正常时文件中就只会有这一个元素的 -->
+	<response-status>201</response-status>
+
+	<!-- 总页数 -->
+	<total-page>4</total-page>
+
+	<!-- 当前页 -->
+	<current-page>1</current-page>
+
+	<!-- 数据所属的日期 -->
+	<count-date>2012-02-31</count-date>
+
+	<!-- 对应于一个tracku和clickid(这个值用于扩展)的组合有一个此元素，一次最多1000个此元素 -->
+	<coupon-info>
+		<!-- 渠道标识 -->
+		<tracker-u>1024029485</tracker-u>
+
+		<!-- 点击标识,用于以后的功能扩展的,目前返回的数据中都会是空值,解析时也可以不管这个值 -->
+		<clickid></clickid>
+		
+		<!-- 抵用卷编号 -->
+		<coupon-id>12345</coupon-id>
+
+		<!-- 抵用卷类型(直接抵扣金额、或是要满足一定条件才能抵用) -->
+		<coupon-type>1</coupon-type>
+
+		<!-- 抵用金额 -->
+		<coupon-amount>sansung</coupon-amount>
+
+		<!-- 使用该抵用卷的订单code -->
+		<order-code>14XDEGEKRLKSGRE</order-code>
+
+		<!-- 使用该抵用卷的用户ID(这是你们系统的用户ID) -->
+		<member-id>34534543</member-id>
+
+				
+	</coupon-info>
+
+
+	<coupon-info>
+		<tracker-u>1024029485</tracker-u>
+		<clickid></clickid>
+		<coupon-id>0000012345</coupon-id>
+		<coupon-type>1</coupon-type>
+		<coupon-amount>sansung</coupon-amount>
+		<order-code>14XDEGEKRLKSGRE</order-code>
+		<member-id>手机通讯</member-id>
+	</coupon-info>
+		
+</coupon>

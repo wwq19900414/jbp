@@ -1,0 +1,35 @@
+<pageview>
+	<!-- 通用的返回状态元素,当返回的状态码代表不正常时文件中就只会有这一个元素的 -->
+	<response-status>201</response-status>
+
+	<!-- 总页数 -->
+	<total-page>4</total-page>
+
+	<!-- 当前页 -->
+	<current-page>1</current-page>
+
+	<!-- 数据统计日期 -->
+	<count-date>2012-02-31</count-date>
+	
+	<!-- 页面信息，一次最多1000个此元素 -->
+	<pageview-info>
+		<!-- 渠道标识 -->
+		<tracker-u>1024029485</tracker-u>
+
+		<!-- 点击标识 -->
+		<clickid>jk7Nsdk282</clickid>
+
+		<!-- 浏览页面数目 -->
+		<pv>144</pv>
+		
+		<!-- 浏览人数 -->
+		<uv>60</vu>
+	</pageview-info>
+
+	<pageview-info >
+		<tracker-u>1024029485</tracker-u>
+		<clickid>jk7Nsdk282</clickid>
+		<pv>146</pv>
+		<uv>60</vu>
+	</pageview-info>
+</pageview>

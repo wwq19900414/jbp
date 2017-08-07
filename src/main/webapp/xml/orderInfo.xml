@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<order>
+	<!-- 通用的返回状态元素,当返回的状态码代表不正常时文件中就只会有这一个元素的 -->
+	<response-status>201</response-status>
+
+	<!-- 总页数 -->
+	<total-page>4</total-page>
+
+	<!-- 当前页 -->
+	<current-page>1</current-page>
+
+	<!-- 数据统计日期 -->
+	<count-date>2012-02-31</count-date>
+
+	<!-- 对应月一个tracku和clickid的组合有一个此元素，一次最多1000个此元素 -->
+	<order-info>
+		<!-- 渠道标识 -->
+		<tracker-u>1024029485</tracker-u>
+
+		<!-- 点击标识 -->
+		<clickid>jk7Nsdk282</clickid>
+		
+		
+		<!-- 订单编号 -->
+		<order-id>65012356145</order-id>
+
+		<!-- 订单生成时间 -->
+		<create-time>2013-01-01 14:25:36</create-time>
+
+		<!-- 支付完成时间 -->
+		<pay-time>2013-02-05 14:25:36</pay-time>
+
+		<!-- 订单完成时间(目前无法提供,返回的都是空元素) -->
+		<complete-time>2013-02-06 14:25:36</complete-time>
+
+		<!-- 支付类型 1.网上支付 2.货到付款 -->
+		<payment-category>2</payment-category>
+
+		<!-- 订单状态(详细意义参见附件中txt文件)-->
+		<order-status>2</order-status>
+
+		<!-- 新客或是老客，1：新客，0：老客 -->
+		<customer-new-or-old>1</customer-new-or-old>
+	</order-info>
+
+	<order-info>
+		<tracker-u>1024029485</tracker-u>
+		<clickid>jk7Nsdk282</clickid>
+		<order-id>23012356145</order-id>
+		<create-time>2013-01-01 14:25:36</create-time>
+		<pay-time>2013-02-05 14:25:36</pay-time>
+		<complete-time>2013-02-06 14:25:36</complete-time>
+		<payment-category>2</payment-category>
+		<order-status>2</order-status>
+		<customer-new-or-old>0</customer-new-or-old>
+	</order-info>
+		
+
+	
+	<order-info>
+		<tracker-u>1024029485</tracker-u>
+		<clickid>jk7Nsdk282</clickid>
+		<order-id>A012356145</order-id>
+		<create-time>2013-01-01 14:25:36</create-time>
+		<pay-time>2013-02-05 14:25:36</pay-time>
+		<complete-time>2013-02-06 14:25:36</complete-time>
+		<payment-category>2</payment-category>
+		<order-status>2</order-status>
+		<customer-new-or-old>1</customer-new-or-old>
+	</order-info>
+
+
+	<order-info>
+		<tracker-u>1024029485</tracker-u>
+		<clickid>jk7Nsdk282</clickid>
+		<order-id>14012356145</order-id>
+		<create-time>2013-01-01 14:25:36</create-time>
+		<pay-time>2013-02-05 14:25:36</pay-time>
+		<complete-time>2013-02-06 14:25:36</complete-time>
+		<payment-category>2</payment-category>
+		<order-status>2</order-status>
+		<customer-new-or-old>0</customer-new-or-old>
+	</order-info>
+	
+	
+</order>

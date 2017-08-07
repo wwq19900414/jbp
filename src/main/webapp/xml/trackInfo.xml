@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<track>
+	<!-- 总页数 -->
+	<total-page>10</total-page>
+
+	<!-- 当前页 -->
+	<current-page>1</current-page>
+
+	<!-- 数据统计日期 -->
+	<count-date>2012-02-31</count-date>
+
+	<!-- 一个xml文件中最多1000个此元素 -->
+	<track-info>
+		<!-- 渠道标识,跟踪码 -->
+		<tracker-u>1024029485</tracker-u>
+
+		<!-- 点击标识 -->
+		<clickid>jk7Nsdk282</clickid>
+
+		<!-- session标识 -->
+		<session-id>23r3432sdg3gwee4sd54</session-id>
+
+		<!-- 跟踪时间 -->
+		<track-time>2012-04-08 10:48:14.0</track-time>
+				
+		<!-- 用户Id -->
+		<guid>123455895</guid>
+
+		<!-- 用户ID生成时间 -->
+		<guid-createtime>2012-04-08 10:48:14.0</guid-createtime>
+
+		<!-- 当前页面地址 -->
+		<url>http://www.yihaodian.com/item/456245</url>
+
+		<!-- 来源页面地址 -->
+		<referer>http://www.sina.com/item/456245</referer>
+
+		<!-- 客户端ip -->
+		<ip>224.168.0.56</ip>
+
+		<!-- 订单编号 -->
+		<order-no>2482356250</order-no>
+
+		<!-- 操作系统 -->
+		<plat-form>Windows XP</plat-form>
+
+		<!-- 浏览器信息 -->
+		<browser>IE 8.0</browser>
+
+		<!-- 事件名称 -->
+		<btn-pos>click</btn-pos>
+
+		<!-- 链接名称 -->
+		<link-pos>click</link-pos>
+
+	</track-info>
+
+	<track-info>
+		<tracker-u>1024029485</tracker-u>
+		<clickid>jk7Nsdk282</clickid>
+		<session-id>23r3432sdg3gwee4sd54</session-id>
+		<track-time>2012-04-08 10:48:14.0</track-time>
+		<guid>123455895</guid>
+		<guid-createtime>2012-04-08 10:48:14.0</guid-createtime>
+		<url>http://www.yihaodian.com/item/456245</url>
+		<referer>http://www.sina.com/item/456245</referer>
+		<ip>224.168.0.56</ip>
+		<order-no>2482356250</order-no>
+		<plat-form>Windows XP</plat-form>
+		<browser>IE 8.0</browser>
+		<btn-pos>click</btn-pos>
+		<link-pos>click</link-pos>
+	</track-info>
+</track>
+

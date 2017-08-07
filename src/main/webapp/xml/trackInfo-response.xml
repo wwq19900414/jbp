@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<track>
+	<!-- 通用的返回状态元素,当返回的状态码代表不正常时文件中就只会有这一个元素的 -->
+	<response-status>200</response-status>
+
+	<!-- 请求的数据的日期,只有response-status为200的时候才会有此元素 -->
+	<count-date>数据统计日期</count-date>
+
+	<!-- tracku数据包的下载地址,一次下载一天的数据，只有response-status为200的时候才会有此元素,fileName是appId_date -->
+	<url>http://adm.yihaodian.com/adoutside/service/analysis/downloadFile.action?filename=2_2013-04-08</url>
+	
+</track>
+

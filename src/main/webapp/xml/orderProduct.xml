@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<order-detail>
+	<!-- 通用的返回状态元素,当返回的状态码代表不正常时文件中就只会有这一个元素的 -->
+	<response-status>201</response-status>
+
+	<!-- 总页数 -->
+	<total-page>4</total-page>
+
+	<!-- 当前页 -->
+	<current-page>1</current-page>
+
+	<!-- 数据统计日期 -->
+	<count-date>2012-02-31</count-date>
+
+	<!-- 每一个订单商品数据对应于一个此元素，一次请求最多有1000个此种元素 -->
+	<order-product>
+		<!-- 渠道标识 -->
+		<tracker-u>1024029485</tracker-u>
+
+		<!-- 点击标识 -->
+		<clickid>jk7Nsdk282</clickid>
+		
+		
+		<!-- 订单编号 -->
+		<order-id>56012356145</order-id>
+
+		<!-- 商品编码 -->
+		<product-code>0000012345</product-code>
+
+		<!-- 商品名称 -->
+		<product-name>sansung手机</product-name>
+
+		<!-- 商品所属品牌名称 -->
+		<brand>sansung</brand>
+
+		<!-- 商品所属一级类目 -->
+		<category-level1>手机通讯、数码电器</category-level1>
+
+		<!-- 商品所属二级类目 -->
+		<category-level2>手机通讯</category-level2>
+
+		<!-- 商品的售价 -->
+		<totalprice-in-cart>1240</totalprice-in-cart >
+
+		<!-- 商品成交价 -->
+		<totalprice-in-order>1100</totalprice-in-order >
+
+		<!-- 此订单中该商品的数量-->
+		<count>3</count>
+	</order-product>
+		
+	<order-product>
+		<tracker-u>1024029485</tracker-u>
+		<clickid>jk7Nsdk282</clickid>
+		<order-id>6012356145</order-id>
+		<product-code>0000067891</product-code>
+		<product-name>motorolo手机</product-name>
+		<brand>motorolo</brand>
+		<category-level1>手机通讯、数码电器</category-level1>
+		<category-level2>手机通讯</category-level2>
+		<totalprice-in-cart>1000</totalprice-in-cart>
+		<totalprice-in-order>950</totalprice-in-order>
+		<count>1</count>
+	</order-product>
+
+	<order-product>
+		<tracker-u>1024123485</tracker-u>
+		<clickid>jk7Nsgh282</clickid>
+		<order-id>123563256</order-id>
+		<product-code>0000067891</product-code>
+		<product-name>诺基亚手机</product-name>
+		<brand>nikiya</brand>
+		<category-level1>手机通讯、数码电器</category-level1>
+		<category-level2>手机通讯</category-level2>
+		<totalprice-in-cart>1300</totalprice-in-cart>
+		<totalprice-in-order>1100</totalprice-in-order>
+		<count>1</count>
+	</order-product>
+	
+
+		
+	
+	
+</order-detail>

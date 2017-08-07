@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<bean id="propertyConfigurer"     
+        class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">      
+    <property name="location" value="classpath:/config/dataSource_local.properties"/>      
+	</bean>
+
+    <bean id="dataSource_local" class="org.apache.commons.dbcp.BasicDataSource"       
+        destroy-method="close">       
+	    <property name="driverClassName" value="${jdbc.driverClassName}" />      
+	    <property name="url" value="${jdbc.url}" />      
+	    <property name="username" value="${jdbc.username}" />      
+	    <property name="password" value="${jdbc.password}" />      
+	</bean>  
+
+
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource_local"/>
+    </bean>
+    
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource_local"/>
+        <property name="configLocation" value="classpath:mybatis\ibatis-config.xml"/>
+        <property name="mapperLocations" value="classpath*:/mybatis/adm/*.xml"/>
+        <property name="typeAliasesPackage" value="com.thestore.eam.domain"/>
+    </bean>
+    
+    <bean id="txProxyTemplate" abstract="true" 
+            class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager">
+            <ref bean="transactionManager"/>
+        </property>
+        <!-- define business transaction mechanism -->
+        <property name="transactionAttributes">
+          <props>
+             <prop key="add*">PROPAGATION_REQUIRED,-BusinessException</prop>
+             <prop key="save*">PROPAGATION_REQUIRED,-BusinessException</prop>
+             <prop key="update*">PROPAGATION_REQUIRED,-BusinessException</prop>
+             <prop key="delete*">PROPAGATION_REQUIRED,-BusinessException</prop>
+             <prop key="importExcel*">PROPAGATION_REQUIRED,-Exception</prop>
+             <prop key="create*">PROPAGATION_REQUIRES_NEW,-BusinessException</prop>
+             <prop key="drop*">PROPAGATION_REQUIRES_NEW,timeout_100,-BusinessException</prop> 
+          </props>
+        </property>
+    </bean>
+    
+    <!-- scheduler definition start-->
+    
+<!--    <bean id="schedulerFactoryBean" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">-->
+<!--    </bean>-->
+    
+<!--    <bean id="schedulerInitializationBean" class="com.thestore.eam.jobs.SchedulerInitializationBean">-->
+<!--       <property name="shceduler" ref="schedulerFactoryBean"/>-->
+<!--       <property name="jobTriggerService" ref="jobTriggerService"/>-->
+<!--    </bean>-->
+    
+    <!-- scheduler definition end  -->
+    
+ 
+
+
+
+
+
+	
+	<bean id="remoteInvokerDao" class="com.thestore.eam.dao.impl.RemoteInvokerDaoImp">
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+    </bean>
+    
+    
+    <bean id="apiManagerService" class="com.thestore.eam.service.impl.ApiManagerServiceImp">
+    	<property name="remoteInvokerDao" ref="remoteInvokerDao"/>
+    </bean>
+    
+    <bean id="apiManagerAction" class="com.thestore.eam.web.action.ApiManagerAction" singleton="false">
+    	<property name="apiManagerService" ref="apiManagerService"/>
+    </bean>
+    
+    <!-- 渠道管理配置开始 -->
+	<bean id="dmpLabelDao" class="com.thestore.eam.dao.impl.DmpLabelDao">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+	</bean>
+	
+	
+	<bean id="dmpLabelService" class="com.thestore.eam.service.impl.DmpLabelService">
+		<property name="dmpLabelDao" ref="dmpLabelDao"/>
+	</bean>
+	
+	
+	<bean id="dmpLabelAction" class="com.thestore.eam.web.action.DmpLabelAction" singleton="false">
+		<property name="dmpLabelService" ref="dmpLabelService"/>
+	</bean>
+	<!-- 渠道管理配置结束 -->
+	
+	<!-- tracker日志管理配置开始 -->
+	<bean id="trackerDao" class="com.thestore.eam.dao.impl.TrackerDao">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+	</bean>
+	
+	
+	<bean id="trackerService" class="com.thestore.eam.service.impl.TrackerService">
+		<property name="trackerDao" ref="trackerDao"/>
+	</bean>
+	
+	
+	<bean id="CookieAction" class="com.thestore.eam.web.action.CookieAction" singleton="false">
+		<property name="trackerService" ref="trackerService"/>
+	</bean>
+	<!-- tracker日志管理配置结束 -->
+	
+	
+	<!-- 图片管理配置开始 -->
+	<bean id="imgDao" class="com.thestore.eam.dao.impl.ImgDao">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+	</bean>
+	
+	<bean id="imgService" class="com.thestore.eam.service.impl.ImgService">
+		<property name="imgDao" ref="imgDao"/>
+	</bean>
+	
+	<bean id="imgAction" class="com.thestore.eam.web.action.ImgAction" singleton="false">
+		<property name="imgService" ref="imgService"/>
+	</bean>
+	<!-- 图片管理管理配置结束 -->
+</beans>
